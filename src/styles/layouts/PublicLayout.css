@@ -1,0 +1,104 @@
+/* Root layout */
+.public-layout {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+/* Overlay → soft white gradient */
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom right,
+            rgba(255, 255, 255, 0.9),
+            rgba(255, 255, 255, 0.7));
+    backdrop-filter: blur(6px);
+}
+
+/* Card → white, clean */
+.card {
+    position: relative;
+    width: 100%;
+    max-width: 28rem;
+    /* ~448px */
+    background: #ffffff;
+    border-radius: 1rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    z-index: 1;
+    color: #1f2937;
+    /* neutral text (gray-800) */
+}
+
+
+/* Logo + Title section */
+.logo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+
+.logo-circle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    background: #326350;
+    /* default green */
+    margin-bottom: 0.75rem;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+    /* circle transitions */
+}
+
+/* SVG icon inside circle */
+.logo-circle svg {
+    width: 2rem;
+    height: 2rem;
+    transition: transform 0.3s ease, fill 0.3s ease;
+    fill: white;
+    /* default solid color */
+}
+
+/* Hover: scale icon + gradient fill, lighten circle */
+.logo-circle:hover {
+    /* background: linear-gradient(135deg, #326350, #4ade80); */
+    /* subtle gradient on circle */
+    transform: scale(1.05);
+    background: white;
+    border: 1px solid #4ade80;
+    /* optional slight scale of circle */
+}
+
+.logo-circle:hover svg {
+    transform: scale(1.2);
+    /* scale icon independently */
+    fill: url(#gradient);
+    /* apply gradient to icon */
+}
+
+
+.app-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #326350;
+    /* green accent */
+    letter-spacing: 0.05em;
+    margin: 0;
+}
+
+.subtitle {
+    font-size: 0.875rem;
+    color: #6b7280;
+    /* gray-500 */
+    margin: 0;
+}
