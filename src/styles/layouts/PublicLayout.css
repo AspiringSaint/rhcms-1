@@ -1,104 +1,95 @@
-/* Root layout */
+/* Root layout: dark background */
 .public-layout {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-size: cover;
-    background-position: center;
-    position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #0f1115; /* deep dark background */
+  font-family: 'Inter', sans-serif;
+  color: #ffffff;
+  padding: 1rem;
 }
 
-/* Overlay → soft white gradient */
-.overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to bottom right,
-            rgba(255, 255, 255, 0.9),
-            rgba(255, 255, 255, 0.7));
-    backdrop-filter: blur(6px);
-}
-
-/* Card → white, clean */
+/* Card with subtle green gradient */
 .card {
-    position: relative;
-    width: 100%;
-    max-width: 28rem;
-    /* ~448px */
-    background: #ffffff;
-    border-radius: 1rem;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-    padding: 2rem;
-    z-index: 1;
-    color: #1f2937;
-    /* neutral text (gray-800) */
+  position: relative;
+  width: 100%;
+  max-width: 28rem; /* 448px */
+  background: linear-gradient(145deg, #1f3f32, #3f896f); /* darker gradient for contrast */
+  border-radius: 1.25rem;
+  box-shadow: 0 12px 28px rgba(0,0,0,0.5); /* stronger shadow for dark bg */
+  padding: 3rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  color: #ffffff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-
-/* Logo + Title section */
-.logo-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 1.5rem;
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.6);
 }
 
-
+/* Logo circle */
 .logo-circle {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 4rem;
-    height: 4rem;
-    border-radius: 50%;
-    background: #326350;
-    /* default green */
-    margin-bottom: 0.75rem;
-    cursor: pointer;
-    transition: background 0.3s ease, transform 0.3s ease;
-    /* circle transitions */
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  background: #0f1115; /* dark circle with shadow */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.4);
 }
 
-/* SVG icon inside circle */
 .logo-circle svg {
-    width: 2rem;
-    height: 2rem;
-    transition: transform 0.3s ease, fill 0.3s ease;
-    fill: white;
-    /* default solid color */
+  width: 2.5rem;
+  height: 2.5rem;
+  transition: transform 0.3s ease, fill 0.3s ease;
+  fill: #4ade80; /* bright Vue-green */
 }
 
-/* Hover: scale icon + gradient fill, lighten circle */
 .logo-circle:hover {
-    /* background: linear-gradient(135deg, #326350, #4ade80); */
-    /* subtle gradient on circle */
-    transform: scale(1.05);
-    background: white;
-    border: 1px solid #4ade80;
-    /* optional slight scale of circle */
+  transform: scale(1.1);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.6);
 }
 
 .logo-circle:hover svg {
-    transform: scale(1.2);
-    /* scale icon independently */
-    fill: url(#gradient);
-    /* apply gradient to icon */
+  transform: scale(1.3);
+  fill: url(#gradient);
 }
 
+/* Logo container */
+.logo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+}
 
+/* App title */
 .app-title {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: #326350;
-    /* green accent */
-    letter-spacing: 0.05em;
-    margin: 0;
+  font-size: 2rem;
+  font-weight: 900;
+  text-align: center;
+  color: white;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.7);
+  transition: transform 0.3s ease, color 0.3s ease;
 }
 
+.app-title:hover {
+  transform: scale(1.05);
+  color: #4ade80;
+}
+
+/* Subtitle */
 .subtitle {
-    font-size: 0.875rem;
-    color: #6b7280;
-    /* gray-500 */
-    margin: 0;
+  font-size: 0.9375rem;
+  color: rgba(255,255,255,0.8);
+  text-align: center;
 }

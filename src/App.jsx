@@ -3,13 +3,17 @@ import { Toaster } from 'react-hot-toast';
 
 import PublicLayout from './layouts/PublicLayout';
 
+import LoginPage from './pages/auth/LoginPage';
+
 const App = () => {
   return (
     <>
       <Toaster position='top-right' reverseOrder={false} />
 
       <Routes>
-        <Route path='/' element={<PublicLayout />} />
+        <Route element={<PublicLayout />}>
+          <Route path='/' element={<LoginPage />} />
+        </Route>
       </Routes>
     </>
   )
