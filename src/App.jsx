@@ -13,6 +13,19 @@ import PatientList from './components/patients/PatientList';
 import PatientForm from './components/patients/PatientForm';
 import PatientProfile from './components/patients/PatientProfile';
 
+import StaffPage from './components/staffs/StaffPage';
+import StaffList from './components/staffs/StaffList';
+import StaffForm from './components/staffs/StaffForm';
+import StaffProfile from './components/staffs/StaffProfile';
+
+import SchedulePage from './components/schedules/SchedulePage';
+import ScheduleList from './components/schedules/ScheduleList';
+import ScheduleForm from './components/schedules/ScheduleForm';
+
+import QueuePage from './components/queues/QueuePage';
+import PharmacyPage from './components/pharmacy/PharmacyPage';
+import ReportsPage from './components/reports/ReportPage';
+
 const App = () => {
   return (
     <>
@@ -27,10 +40,25 @@ const App = () => {
           <Route index path='dashboard' element={<AdminDashboardPage />} />
 
           <Route path='patients' element={<PatientsPage />}>
-              <Route index element={<PatientList />} />
-              <Route path='register' element={<PatientForm />} />
-              <Route path=':id' element={<PatientProfile />}/>
+            <Route index element={<PatientList />} />
+            <Route path='register' element={<PatientForm />} />
+            <Route path=':id' element={<PatientProfile />} />
           </Route>
+
+          <Route path='staffs' element={<StaffPage />}>
+            <Route index element={<StaffList />} />
+            <Route path='register' element={<StaffForm />} />
+            <Route path=':id' element={<StaffProfile />} />
+          </Route>
+
+          <Route path='schedules' element={<SchedulePage />}>
+            <Route index element={<ScheduleList />} />
+            <Route path='add' element={<ScheduleForm />} />
+          </Route>
+
+          <Route path='queues' element={<QueuePage />} />
+          <Route path='pharmacy' element={<PharmacyPage />} />
+          <Route path='reports' element={<ReportsPage />}/>
         </Route>
 
       </Routes>

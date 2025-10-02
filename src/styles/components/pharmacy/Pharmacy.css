@@ -1,0 +1,83 @@
+.pharmacy-page {
+    padding: 1.5rem;
+    color: white;
+    font-family: 'Inter', sans-serif;
+    background-color: #0f1115;
+    min-height: 100%;
+    box-sizing: border-box;
+}
+
+.pharmacy-page h1 {
+    margin-bottom: 1rem;
+}
+
+.pharmacy-tabs {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.pharmacy-tabs button {
+    padding: 0.5rem 1rem;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid transparent;
+    color: white;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.pharmacy-tabs button:hover {
+    border-bottom: 2px solid #4ade80;
+}
+
+.pharmacy-tabs button.active {
+    border-bottom: 2px solid #4ade80;
+    color: #4ade80;
+}
+
+.pharmacy-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+.pharmacy-table th,
+.pharmacy-table td {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.pharmacy-table th {
+    font-weight: 700;
+    color: #4ade80;
+}
+
+.pharmacy-table tr:hover {
+    background: rgba(74, 222, 128, 0.05);
+}
+
+.action-btn {
+    padding: 0.35rem 0.6rem;
+    border: none;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    background: linear-gradient(135deg, #326350, #4ade80);
+    color: white;
+    transition: transform 0.2s ease;
+}
+
+.action-btn:hover {
+    transform: scale(1.05);
+}
+
+.action-btn.remove {
+    background: #ff4d4d;
+}
+
+.low-stock {
+    background: rgba(255, 77, 77, 0.1);
+}

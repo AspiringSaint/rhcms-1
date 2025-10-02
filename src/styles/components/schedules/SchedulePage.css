@@ -1,0 +1,41 @@
+.schedule-page {
+    padding: 2rem 1rem;
+    font-family: 'Inter', sans-serif;
+    color: white;
+    background-color: #0f1115;
+    min-height: 100%;
+}
+
+/* Page title */
+.schedule-page h1 {
+    font-size: 1.75rem;
+    font-weight: 900;
+    margin-bottom: 1rem;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+}
+
+/* Navigation tabs */
+.schedule-nav {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.schedule-nav .nav-tab {
+    padding: 0.5rem 1rem;
+    border-bottom: 2px solid transparent;
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+    font-weight: 500;
+    transition: border 0.2s ease, color 0.2s ease;
+}
+
+.schedule-nav .nav-tab:hover {
+    color: #4ade80;
+}
+
+.schedule-nav .nav-tab.active {
+    border-bottom: 2px solid #4ade80;
+    color: #4ade80;
+    font-weight: 600;
+}
