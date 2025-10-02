@@ -13,6 +13,11 @@ import PatientList from './components/patients/PatientList';
 import PatientForm from './components/patients/PatientForm';
 import PatientProfile from './components/patients/PatientProfile';
 
+import StaffPage from './components/staffs/StaffPage';
+import StaffList from './components/staffs/StaffList';
+import StaffForm from './components/staffs/StaffForm';
+import StaffProfile from './components/staffs/StaffProfile';
+
 const App = () => {
   return (
     <>
@@ -27,9 +32,15 @@ const App = () => {
           <Route index path='dashboard' element={<AdminDashboardPage />} />
 
           <Route path='patients' element={<PatientsPage />}>
-              <Route index element={<PatientList />} />
-              <Route path='register' element={<PatientForm />} />
-              <Route path=':id' element={<PatientProfile />}/>
+            <Route index element={<PatientList />} />
+            <Route path='register' element={<PatientForm />} />
+            <Route path=':id' element={<PatientProfile />} />
+          </Route>
+
+          <Route path='staffs' element={<StaffPage />}>
+            <Route index element={<StaffList />} />
+            <Route path='register' element={<StaffForm />} />
+            <Route path=':id' element={<StaffProfile />} />
           </Route>
         </Route>
 

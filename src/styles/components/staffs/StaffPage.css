@@ -1,0 +1,53 @@
+.staff-page {
+    padding: 1.5rem;
+    color: white;
+    font-family: 'Inter', sans-serif;
+    background-color: #0f1115;
+    min-height: 100%;
+}
+
+/* Page heading */
+.staff-page h1 {
+    font-size: 1.75rem;
+    font-weight: 900;
+    margin-bottom: 1.25rem;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+}
+
+/* Tabs container */
+.staff-tabs {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Individual tab */
+.staff-tab {
+    padding: 0.6rem 1rem;
+    font-weight: 500;
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+/* Hover state */
+.staff-tab:hover {
+    color: #4ade80;
+}
+
+/* Active tab */
+.staff-tab.active {
+    color: #4ade80;
+    font-weight: 600;
+    border-bottom: 2px solid #4ade80;
+}
+
+/* Outlet wrapper for nested routes */
+.staff-outlet {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 1rem;
+    border-radius: 0.75rem;
+}

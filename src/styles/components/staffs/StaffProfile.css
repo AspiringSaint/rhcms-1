@@ -1,0 +1,124 @@
+.staff-profile-page {
+    padding: 2rem;
+    color: white;
+    font-family: 'Inter', sans-serif;
+    background-color: #0f1115;
+    min-height: 100%;
+}
+
+.back-link {
+    display: inline-block;
+    margin-bottom: 1.5rem;
+    color: #4ade80;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s ease;
+}
+
+.back-link:hover {
+    color: #22c55e;
+}
+
+/* Profile Card */
+.staff-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 0.75rem;
+    padding: 1.5rem 2rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    max-width: 700px;
+}
+
+.staff-card h2 {
+    font-size: 1.75rem;
+    margin: 0 0 0.5rem 0;
+}
+
+.staff-id {
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 1.5rem;
+}
+
+.staff-info p {
+    margin: 0.25rem 0;
+    font-size: 1rem;
+}
+
+/* Status styles */
+.status {
+    font-weight: 700;
+    padding: 0.2rem 0.6rem;
+    border-radius: 0.4rem;
+    font-size: 0.9rem;
+}
+
+.status.active {
+    background: rgba(74, 222, 128, 0.15);
+    color: #4ade80;
+}
+
+.status.inactive {
+    background: rgba(239, 68, 68, 0.15);
+    color: #ef4444;
+}
+
+/* Schedule */
+.staff-schedule {
+    margin-top: 1.5rem;
+}
+
+.staff-schedule h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+    color: #4ade80;
+}
+
+.staff-schedule ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.staff-schedule li {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    margin-bottom: 0.5rem;
+}
+
+/* Action buttons */
+.staff-actions {
+    margin-top: 2rem;
+    display: flex;
+    gap: 1rem;
+}
+
+.staff-actions button {
+    padding: 0.6rem 1.25rem;
+    border-radius: 0.5rem;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.3s ease;
+}
+
+.edit-btn {
+    background: #326350;
+    color: white;
+}
+
+.edit-btn:hover {
+    background: #4ade80;
+    transform: scale(1.05);
+}
+
+.deactivate-btn {
+    background: #ef4444;
+    color: white;
+}
+
+.deactivate-btn:hover {
+    background: #dc2626;
+    transform: scale(1.05);
+}
