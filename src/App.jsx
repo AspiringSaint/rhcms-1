@@ -24,6 +24,7 @@ import ScheduleForm from './components/schedules/ScheduleForm';
 
 import QueuePage from './components/queues/QueuePage';
 import PharmacyPage from './components/pharmacy/PharmacyPage';
+import ReportsPage from './components/reports/ReportPage';
 
 const App = () => {
   return (
@@ -57,6 +58,7 @@ const App = () => {
 
           <Route path='queues' element={<QueuePage />} />
           <Route path='pharmacy' element={<PharmacyPage />} />
+          <Route path='reports' element={<ReportsPage />}/>
         </Route>
 
       </Routes>
