@@ -1,0 +1,47 @@
+/* Page container */
+.patients-page {
+    padding: 2rem;
+    color: white;
+    font-family: 'Inter', sans-serif;
+    background-color: #0f1115;
+    min-height: 100%;
+}
+
+/* Page title */
+.patients-page h1 {
+    font-size: 1.875rem;
+    font-weight: 900;
+    margin-bottom: 1.5rem;
+    color: #ffffff;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+}
+
+/* Tabs container */
+.patients-tabs {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+/* Tab links */
+.patients-tabs a {
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    font-weight: 600;
+    color: #ffffff;
+    transition: all 0.3s ease;
+    border-bottom: 2px solid transparent;
+}
+
+/* Active tab */
+.patients-tabs a.active {
+    border-bottom: 2px solid #4ade80;
+}
+
+/* Hover tab gradient effect */
+.patients-tabs a:hover {
+    background: linear-gradient(135deg, #326350, #4ade80);
+    color: white;
+    transform: scale(1.05);
+}
