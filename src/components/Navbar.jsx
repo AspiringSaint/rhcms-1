@@ -4,7 +4,10 @@ import '../styles/components/Navbar.css'
 
 const Navbar = () => {
   return (
-    <div>Navbar</div>
+    <nav className='navbar'>
+        <p className='navbar-title'>Dashboard</p>
+        <p className='navbar-user'>Juan Dela Cruz</p>
+    </nav>
   )
 }
 
