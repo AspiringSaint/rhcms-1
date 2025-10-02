@@ -1,3 +1,4 @@
+/* Collapse button container */
 .collapse-button {
     position: absolute;
     top: 1rem;
@@ -5,31 +6,49 @@
     z-index: 10;
 }
 
+/* Button style */
 .collapse-button button {
-    width: 2rem;
-    height: 2rem;
+    width: 2.2rem;
+    height: 2.2rem;
     border: none;
     border-radius: 50%;
     background: #326350;
     color: white;
     cursor: pointer;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease, background 0.3s ease;
+    transition: transform 0.6s ease, background 0.3s ease, box-shadow 0.3s ease;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
+/* Hover animation for button */
 .collapse-button button:hover {
     background: linear-gradient(145deg, #1f3f32, #4ade80);
-    transform: scale(1.1);
+    transform: scale(1.15) rotate(5deg);
+    /* slight rotation for fun */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
 }
 
+/* Chevron icon inside button */
 .collapse-button .chevron {
-    display: inline-block; /* needed for transform */
-    transition: transform 0.3s ease;
+    display: inline-block;
+    /* required for transform */
+    transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
+/* Rotate chevron when sidebar is collapsed */
 .collapse-button .chevron.rotate {
     transform: rotate(180deg);
+}
+
+/* Optional: subtle hover spin for chevron */
+.collapse-button button:hover .chevron {
+    transform: rotate(20deg);
+}
+
+/* Smoothly return chevron to normal if not collapsed */
+.collapse-button button:hover .chevron.rotate {
+    transform: rotate(200deg);
+    /* 180 + 20 for extra flair */
 }
