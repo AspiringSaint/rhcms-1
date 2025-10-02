@@ -1,62 +1,98 @@
 import { useState } from "react";
-import '../../styles/components/queues/QueuePage.css';
+import "../../styles/components/queues/QueuePage.css";
 
-const dummyQueues = {
+const dummyQueue = {
     "Internal Medicine": [
-        { id: 1, name: "Juan Cruz", dob: "1990-05-06", gender: "Male", priority: false, status: "Waiting" },
-        { id: 2, name: "Ana Reyes", dob: "1988-02-14", gender: "Female", priority: true, status: "Waiting" },
+        { id: 1, name: "Juan Cruz", priority: true, status: "Waiting" },
+        { id: 2, name: "Pedro Dela Cruz", priority: false, status: "Waiting" },
     ],
     Pediatrics: [
-        { id: 3, name: "Pedro Dela Cruz", dob: "2015-08-22", gender: "Male", priority: false, status: "Waiting" },
+        { id: 3, name: "Maria Santos", priority: false, status: "Waiting" },
     ],
-    "OB-GYN": [
-        { id: 4, name: "Maria Santos", dob: "1985-08-02", gender: "Female", priority: false, status: "Waiting" },
-    ]
+    "OB-GYN": [],
 };
 
 const QueuePage = () => {
-    const [activeTab, setActiveTab] = useState("Internal Medicine");
-    const [queues, setQueues] = useState(dummyQueues);
+    const [activeTab, setActiveTab] = useState("All Queue");
+    const [queueData, setQueueData] = useState(dummyQueue);
 
-    const startConsultation = (specialty, id) => {
-        setQueues({
-            ...queues,
-            [specialty]: queues[specialty].map(p => p.id === id ? { ...p, status: "In Consultation" } : p)
-        });
+    // form state
+    const [patientName, setPatientName] = useState("");
+    const [specialty, setSpecialty] = useState("Internal Medicine");
+    const [priority, setPriority] = useState(false);
+
+    const tabNames = ["All Queue", ...Object.keys(queueData), "Add to Queue"];
+
+    const handleAddToQueue = (e) => {
+        e.preventDefault();
+        if (!patientName.trim()) {
+            alert("Patient name is required!");
+            return;
+        }
+
+        const newPatient = {
+            id: Date.now(),
+            name: patientName,
+            priority,
+            status: "Waiting",
+        };
+
+        setQueueData((prev) => ({
+            ...prev,
+            [specialty]: [...prev[specialty], newPatient],
+        }));
+
+        setPatientName("");
+        setPriority(false);
+        setSpecialty("Internal Medicine");
+
+        alert("Patient added to queue successfully!");
     };
 
-    const completeConsultation = (specialty, id) => {
-        setQueues({
-            ...queues,
-            [specialty]: queues[specialty].map(p => p.id === id ? { ...p, status: "Done" } : p)
-        });
-    };
-
-    // Prepare current queue
-    let currentQueue = [];
-    if (activeTab === "All Queues") {
-        Object.keys(queues).forEach(s => {
-            queues[s].forEach(p => currentQueue.push({ ...p, specialty: s }));
-        });
-    } else {
-        currentQueue = queues[activeTab].map(p => ({ ...p, specialty: activeTab }));
-    }
-
-    // Sort by priority first
-    currentQueue.sort((a, b) => b.priority - a.priority);
-
-    const tabNames = ["All Queues", ...Object.keys(queues)];
+    const renderTable = (patients, specialtyName) => (
+        <div className="queue-section">
+            {specialtyName && <h2>{specialtyName}</h2>}
+            <table className="queue-table">
+                <thead>
+                    <tr>
+                        <th>Queue #</th>
+                        <th>Name</th>
+                        <th>Priority</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {patients.length > 0 ? (
+                        patients.map((p, index) => (
+                            <tr key={p.id} className={p.priority ? "priority-row" : ""}>
+                                <td>{index + 1}</td>
+                                <td>{p.name}</td>
+                                <td>{p.priority ? "Yes" : "No"}</td>
+                                <td>{p.status}</td>
+                            </tr>
+                        ))
+                    ) : (
+                        <tr>
+                            <td colSpan="4" style={{ textAlign: "center" }}>
+                                No patients in {specialtyName || "this"} queue
+                            </td>
+                        </tr>
+                    )}
+                </tbody>
+            </table>
+        </div>
+    );
 
     return (
         <div className="queue-page">
-            <h1>Patient Queues</h1>
+            <h1>Consultation Queues</h1>
 
             {/* Tabs */}
             <div className="queue-tabs">
-                {tabNames.map(tab => (
+                {tabNames.map((tab) => (
                     <button
                         key={tab}
-                        className={activeTab === tab ? "active" : ""}
+                        className={`queue-tab ${activeTab === tab ? "active" : ""}`}
                         onClick={() => setActiveTab(tab)}
                     >
                         {tab}
@@ -64,46 +100,59 @@ const QueuePage = () => {
                 ))}
             </div>
 
-            {/* Queue Table */}
-            <table className="queue-table">
-                <thead>
-                    <tr>
-                        <th>Queue #</th>
-                        <th>Name</th>
-                        <th>DOB</th>
-                        <th>Gender</th>
-                        <th>Specialty</th>
-                        <th>Priority</th>
-                        <th>Status</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {currentQueue.length > 0 ? currentQueue.map((p, index) => (
-                        <tr key={p.id} className={p.priority ? "priority" : ""}>
-                            <td>{index + 1}</td>
-                            <td>{p.name}</td>
-                            <td>{p.dob}</td>
-                            <td>{p.gender}</td>
-                            <td>{p.specialty}</td>
-                            <td>{p.priority ? "Yes" : "No"}</td>
-                            <td>{p.status}</td>
-                            <td>
-                                {p.status === "Waiting" && (
-                                    <button className="action-btn start" onClick={() => startConsultation(p.specialty, p.id)}>Start</button>
-                                )}
-                                {p.status === "In Consultation" && (
-                                    <button className="action-btn done" onClick={() => completeConsultation(p.specialty, p.id)}>Done</button>
-                                )}
-                            </td>
-                        </tr>
-                    )) : (
-                        <tr>
-                            <td colSpan="8" style={{ textAlign: "center" }}>No patients in this queue</td>
-                        </tr>
-                    )}
-                </tbody>
-            </table>
+            {/* All Queues */}
+            {activeTab === "All Queue" &&
+                Object.entries(queueData).map(([spec, patients]) =>
+                    renderTable(patients, spec)
+                )}
+
+            {/* Specialty Tabs */}
+            {Object.keys(queueData).includes(activeTab) &&
+                renderTable(queueData[activeTab])}
+
+            {/* Add Form */}
+            {activeTab === "Add to Queue" && (
+                <form onSubmit={handleAddToQueue} className="queue-form">
+                    <h2>Add Patient to Queue</h2>
+
+                    <label>
+                        Patient Name:
+                        <input
+                            type="text"
+                            value={patientName}
+                            onChange={(e) => setPatientName(e.target.value)}
+                            required
+                        />
+                    </label>
+
+                    <label>
+                        Specialty:
+                        <select
+                            value={specialty}
+                            onChange={(e) => setSpecialty(e.target.value)}
+                        >
+                            {Object.keys(queueData).map((spec) => (
+                                <option key={spec} value={spec}>
+                                    {spec}
+                                </option>
+                            ))}
+                        </select>
+                    </label>
+
+                    <label className="checkbox">
+                        <input
+                            type="checkbox"
+                            checked={priority}
+                            onChange={(e) => setPriority(e.target.checked)}
+                        />
+                        Priority
+                    </label>
+
+                    <button type="submit" className="add-btn">
+                        Add to Queue
+                    </button>
+                </form>
+            )}
         </div>
     );
 };

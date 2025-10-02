@@ -1,10 +1,9 @@
 .queue-page {
     padding: 1.5rem;
     color: white;
-    font-family: 'Inter', sans-serif;
-    background-color: #0f1115;
+    background: #0f1115;
     min-height: 100%;
-    box-sizing: border-box;
+    font-family: "Inter", sans-serif;
 }
 
 .queue-page h1 {
@@ -14,70 +13,104 @@
 .queue-tabs {
     display: flex;
     gap: 1rem;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
 }
 
-.queue-tabs button {
+.queue-tab {
     padding: 0.5rem 1rem;
     background: transparent;
     border: none;
     border-bottom: 2px solid transparent;
     color: white;
-    cursor: pointer;
     font-weight: 600;
-    transition: all 0.3s ease;
+    cursor: pointer;
+    transition: 0.2s;
 }
 
-.queue-tabs button:hover {
+.queue-tab.active {
     border-bottom: 2px solid #4ade80;
+    color: #4ade80;
 }
 
-.queue-tabs button.active {
-    border-bottom: 2px solid #4ade80;
+.queue-tab:hover {
+    color: #4ade80;
+}
+
+.queue-section h2 {
+    margin: 1rem 0 0.5rem;
+    font-size: 1.1rem;
     color: #4ade80;
 }
 
 .queue-table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 1rem;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 0.5rem;
+    overflow: hidden;
 }
 
 .queue-table th,
 .queue-table td {
     padding: 0.75rem 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     text-align: left;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
 .queue-table th {
-    font-weight: 700;
     color: #4ade80;
+    font-weight: 700;
 }
 
-.queue-table tr.priority {
-    background: rgba(255, 77, 77, 0.1);
+.queue-table tr:hover {
+    background: rgba(74, 222, 128, 0.05);
 }
 
-.action-btn {
-    padding: 0.35rem 0.6rem;
+.priority-row {
+    background: rgba(239, 68, 68, 0.1);
+}
+
+.queue-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 400px;
+}
+
+.queue-form label {
+    display: flex;
+    flex-direction: column;
+    font-weight: 600;
+    gap: 0.25rem;
+}
+
+.queue-form input,
+.queue-form select {
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.05);
+    color: white;
+}
+
+.queue-form .checkbox {
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.add-btn {
+    padding: 0.75rem;
     border: none;
     border-radius: 0.5rem;
-    font-weight: 600;
+    background: #4ade80;
+    color: black;
+    font-weight: 700;
     cursor: pointer;
-    transition: transform 0.2s ease;
+    transition: 0.2s;
 }
 
-.action-btn.start {
-    background: linear-gradient(135deg, #326350, #4ade80);
-    color: white;
-}
-
-.action-btn.done {
-    background: linear-gradient(135deg, #4ade80, #326350);
-    color: white;
-}
-
-.action-btn:hover {
-    transform: scale(1.05);
+.add-btn:hover {
+    background: #22c55e;
 }
