@@ -23,6 +23,7 @@
     right: -0.8rem;
     /* float outside edge */
     z-index: 10;
+        margin-top: 21px;
 }
 
 .collapse-btn button {
@@ -51,7 +52,7 @@
 
 /* Sidebar body */
 .sidebar-body {
-    margin-top: 64px;
+    margin-top: 86px;
     flex: 1;
     padding: 1rem 0.5rem;
     display: flex;
