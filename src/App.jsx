@@ -1,8 +1,40 @@
-import React from 'react'
+import { Routes, Route } from 'react-router-dom';
+import { Toaster } from 'react-hot-toast';
+
+import PublicLayout from './layouts/PublicLayout';
+import DashboardLayout from './layouts/DashboardLayout';
+
+import LoginPage from './pages/auth/LoginPage';
+
+import AdminDashboardPage from './pages/admin/AdminDashboardPage';
+
+import PatientsPage from './components/patients/PatientsPage';
+import PatientList from './components/patients/PatientList';
+import PatientForm from './components/patients/PatientForm';
+import PatientProfile from './components/patients/PatientProfile';
 
 const App = () => {
   return (
-    <div>App</div>
+    <>
+      <Toaster position='top-right' reverseOrder={false} />
+
+      <Routes>
+        <Route element={<PublicLayout />}>
+          <Route path='/' element={<LoginPage />} />
+        </Route>
+
+        <Route path='/admin' element={<DashboardLayout />}>
+          <Route index path='dashboard' element={<AdminDashboardPage />} />
+
+          <Route path='patients' element={<PatientsPage />}>
+              <Route index element={<PatientList />} />
+              <Route path='register' element={<PatientForm />} />
+              <Route path=':id' element={<PatientProfile />}/>
+          </Route>
+        </Route>
+
+      </Routes>
+    </>
   )
 }
 

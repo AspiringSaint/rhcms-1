@@ -1,0 +1,11 @@
+.navbar {
+  width: 100%;
+  background: #1f3f32; /* darker Vue-green */
+  padding: 1rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.5);
+  color: #ffffff;
+  font-weight: 600;
+}

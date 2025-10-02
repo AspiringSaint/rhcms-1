@@ -1,0 +1,95 @@
+/* Root layout: dark background */
+.public-layout {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #0f1115; /* deep dark background */
+  font-family: 'Inter', sans-serif;
+  color: #ffffff;
+  padding: 1rem;
+}
+
+/* Card with subtle green gradient */
+.card {
+  position: relative;
+  width: 100%;
+  max-width: 28rem; /* 448px */
+  background: linear-gradient(145deg, #1f3f32, #3f896f); /* darker gradient for contrast */
+  border-radius: 1.25rem;
+  box-shadow: 0 12px 28px rgba(0,0,0,0.5); /* stronger shadow for dark bg */
+  padding: 3rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  color: #ffffff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+}
+
+/* Logo circle */
+.logo-circle {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  background: #0f1115; /* dark circle with shadow */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+}
+
+.logo-circle svg {
+  width: 2.5rem;
+  height: 2.5rem;
+  transition: transform 0.3s ease, fill 0.3s ease;
+  fill: #4ade80; /* bright Vue-green */
+}
+
+.logo-circle:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+}
+
+.logo-circle:hover svg {
+  transform: scale(1.3);
+  fill: url(#gradient);
+}
+
+/* Logo container */
+.logo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+}
+
+/* App title */
+.app-title {
+  font-size: 2rem;
+  font-weight: 900;
+  text-align: center;
+  color: white;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.7);
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.app-title:hover {
+  transform: scale(1.05);
+  color: #4ade80;
+}
+
+/* Subtitle */
+.subtitle {
+  font-size: 0.9375rem;
+  color: rgba(255,255,255,0.8);
+  text-align: center;
+}

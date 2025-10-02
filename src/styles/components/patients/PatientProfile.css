@@ -1,0 +1,51 @@
+.patient-profile {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    background-color: #1a1c21;
+    /* dark card-like background */
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    color: #ffffff;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.patient-profile h2 {
+    font-size: 1.875rem;
+    font-weight: 900;
+    color: #4ade80;
+    /* vue green accent */
+    margin-bottom: 0.5rem;
+}
+
+.patient-profile h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-top: 1rem;
+    color: #ffffff;
+    border-bottom: 1px solid rgba(74, 222, 128, 0.2);
+    padding-bottom: 0.25rem;
+}
+
+.patient-profile p {
+    margin: 0.25rem 0;
+    line-height: 1.5;
+}
+
+.patient-profile ul {
+    margin: 0.5rem 0 0 1rem;
+    padding: 0;
+    list-style-type: disc;
+}
+
+.patient-profile li {
+    margin-bottom: 0.5rem;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.patient-profile li:hover {
+    color: #4ade80;
+    transform: translateX(4px);
+}
