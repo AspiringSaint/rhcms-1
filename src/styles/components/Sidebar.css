@@ -13,6 +13,7 @@
 
 /* Sidebar body */
 .sidebar-body {
+    margin-top: 16px;
     flex: 1;
     padding: 1rem 0.5rem;
     display: flex;
