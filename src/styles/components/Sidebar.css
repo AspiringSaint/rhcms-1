@@ -9,11 +9,49 @@
     flex-direction: column;
     transition: width 0.3s ease;
     box-shadow: 2px 0 10px rgba(0, 0, 0, 0.4);
+    position: relative;
+}
+
+.sidebar.collapsed {
+    width: 4rem;
+}
+
+/* Floating collapse button */
+.collapse-btn {
+    position: absolute;
+    top: 1rem;
+    right: -0.8rem;
+    /* float outside edge */
+    z-index: 10;
+}
+
+.collapse-btn button {
+    background: #326350;
+    border: none;
+    border-radius: 50%;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.collapse-btn button:hover {
+    background: linear-gradient(145deg, #1f3f32, #4ade80);
+    transform: scale(1.1);
+}
+
+.chevron.rotate {
+    transform: rotate(180deg);
 }
 
 /* Sidebar body */
 .sidebar-body {
-    margin-top: 16px;
+    margin-top: 64px;
     flex: 1;
     padding: 1rem 0.5rem;
     display: flex;
@@ -69,7 +107,7 @@
     background: rgba(74, 222, 128, 0.15);
     color: #4ade80;
     font-weight: 600;
-    transform: translateX(4px);
+    /* transform: translateX(4px); */
 }
 
 /* Sidebar icons */
@@ -77,6 +115,7 @@
     width: 20px;
     height: 20px;
     flex-shrink: 0;
+    margin-bottom: 4px;
 }
 
 .sidebar-link .sidebar-icon path {
@@ -100,45 +139,46 @@
     justify-content: center;
 }
 
-/* Logout button */
+/* Logout button fixed width */
 .logout-btn {
     width: 100%;
-    padding: 0.65rem 0.75rem;
+    min-width: 2.5rem;
+    /* stays visible when collapsed */
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 0.6rem;
+    padding: 0.65rem 0.75rem;
     background: #326350;
-    /* primary green */
     color: white;
     border: none;
     border-radius: 0.6rem;
     font-size: 0.95rem;
     font-weight: 500;
     cursor: pointer;
-    transition: background 0.3s ease-in-out, transform 0.2s ease;
+    transition: background 0.3s ease, transform 0.2s ease;
 }
 
-/* Hover state */
 .logout-btn:hover {
-    background: linear-gradient(135deg, #326350, #4ade80);
-    /* vue green highlight */
+    background: linear-gradient(145deg, #1f3f32, #4ade80);
+    color: white;
     transform: scale(1.05);
 }
 
-/* Active (press) state */
-.logout-btn:active {
-    transform: scale(0.95);
-}
-
-/* Logout icon inside button */
 .logout-btn svg {
     width: 18px;
     height: 18px;
     fill: currentColor;
+    flex-shrink: 0;
     transition: transform 0.3s ease;
 }
 
 .logout-btn:hover svg {
     transform: rotate(-15deg) scale(1.1);
+}
+
+/* Hide labels when collapsed */
+.sidebar.collapsed .sidebar-label,
+.sidebar.collapsed .logout-label {
+    display: none;
 }
