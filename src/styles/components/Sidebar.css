@@ -23,6 +23,7 @@
     right: -0.8rem;
     /* float outside edge */
     z-index: 10;
+    margin-top: 22px;
 }
 
 .collapse-btn button {
