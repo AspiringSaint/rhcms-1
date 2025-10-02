@@ -105,10 +105,11 @@
 .login-links a {
     color: #4ade80;
     font-weight: 600;
-    text-decoration: underline; 
+    text-decoration: none; 
     transition: color 0.2s ease;
 }
 
 .login-links a:hover {
     color: #81e6d9;
+    text-decoration: none;
 }

@@ -1,0 +1,143 @@
+/* Sidebar container */
+.sidebar {
+    background-color: #0f1115;
+    /* deep dark */
+    color: #ffffff;
+    min-height: 100vh;
+    width: 16rem;
+    display: flex;
+    flex-direction: column;
+    transition: width 0.3s ease;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.4);
+}
+
+/* Sidebar body */
+.sidebar-body {
+    flex: 1;
+    padding: 1rem 0.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Nav container */
+.sidebar-body nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+/* Sidebar links */
+.sidebar-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.6rem 0.9rem;
+    border-radius: 0.6rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+    transition: background 0.3s ease, color 0.3s ease, transform 0.2s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.sidebar-link:hover {
+    color: #4ade80;
+}
+
+/* subtle slide-in effect on hover */
+.sidebar-link::before {
+    content: "";
+    position: absolute;
+    left: -100%;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(74, 222, 128, 0.1);
+    /* vue green tint */
+    transition: left 0.3s ease;
+}
+
+.sidebar-link:hover::before {
+    left: 0;
+}
+
+/* active link */
+.sidebar-link.active {
+    background: rgba(74, 222, 128, 0.15);
+    color: #4ade80;
+    font-weight: 600;
+    transform: translateX(4px);
+}
+
+/* Sidebar icons */
+.sidebar-icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+}
+
+.sidebar-link .sidebar-icon path {
+    fill: white;
+    transition: fill 0.3s ease, transform 0.3s ease;
+}
+
+.sidebar-link:hover .sidebar-icon path,
+.sidebar-link.active .sidebar-icon path {
+    fill: url(#gradient5);
+    transform: scale(1.15);
+}
+
+
+/* Sidebar footer */
+.sidebar-footer {
+    margin-top: auto;
+    padding: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: center;
+}
+
+/* Logout button */
+.logout-btn {
+    width: 100%;
+    padding: 0.65rem 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    background: #326350;
+    /* primary green */
+    color: white;
+    border: none;
+    border-radius: 0.6rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out, transform 0.2s ease;
+}
+
+/* Hover state */
+.logout-btn:hover {
+    background: linear-gradient(135deg, #326350, #4ade80);
+    /* vue green highlight */
+    transform: scale(1.05);
+}
+
+/* Active (press) state */
+.logout-btn:active {
+    transform: scale(0.95);
+}
+
+/* Logout icon inside button */
+.logout-btn svg {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+    transition: transform 0.3s ease;
+}
+
+.logout-btn:hover svg {
+    transform: rotate(-15deg) scale(1.1);
+}
