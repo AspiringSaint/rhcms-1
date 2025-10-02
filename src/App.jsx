@@ -21,6 +21,7 @@ import StaffProfile from './components/staffs/StaffProfile';
 import SchedulePage from './components/schedules/SchedulePage';
 import ScheduleList from './components/schedules/ScheduleList';
 import ScheduleForm from './components/schedules/ScheduleForm';
+import QueuePage from './components/queues/QueuePage';
 
 const App = () => {
   return (
@@ -51,6 +52,8 @@ const App = () => {
             <Route index element={<ScheduleList />} />
             <Route path='add' element={<ScheduleForm />} />
           </Route>
+
+          <Route path='queues' element={<QueuePage />} />
         </Route>
 
       </Routes>
