@@ -1,11 +1,22 @@
 .navbar {
   width: 100%;
-  background: #1f3f32; /* darker Vue-green */
-  padding: 1rem 1.5rem;
+  background: #1f3f32;
+  /* darker Vue-green */
+  padding: 1.4rem 1.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.5);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
   color: #ffffff;
   font-weight: 600;
 }
+
+.navbar-title {
+  margin-left: 1.9rem;
+  font-weight: bold;
+  /* transition: all 3s ease-in; */
+}
+
+/* .navbar-title:hover {
+  transform: scale(1.02);
+} */
