@@ -1,7 +1,4 @@
-import { NavLink, Outlet } from "react-router-dom";
-
-import Tabs from "../common/Tabs";
-import "../../styles/components/schedules/SchedulePage.css";
+import PageLayout from "../common/PageLayout";
 
 const SchedulePage = () => {
 
@@ -10,14 +7,7 @@ const SchedulePage = () => {
         { to: '/admin/schedules/add', label: 'Add Schedule' }
     ];
 
-    return (
-        <div className="schedule-page">
-            <h1>Schedules Management</h1>
-
-            <Tabs tabs={tabItems} />
-            <Outlet />
-        </div>
-    );
+    return <PageLayout title={"Schedule Management"} tabs={tabItems} />
 };
 
 export default SchedulePage;
