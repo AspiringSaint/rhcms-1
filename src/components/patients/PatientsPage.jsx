@@ -1,30 +1,13 @@
-import { Outlet, NavLink } from "react-router-dom"
-
-import Tabs from "../common/Tabs"
-import '../../styles/components/patients/PatientsPage.css'
+import PageLayout from "../common/PageLayout"
 
 const PatientsPage = () => {
 
     const tabItems = [
-        {
-            to: '/admin/patients', 
-            label: 'Patient List',
-            end: true
-        },
-        {
-            to: '/admin/patients/registration',
-            label: 'Register Patient'
-        }
+        { to: '/admin/patients', label: 'Patient List', end: true },
+        { to: '/admin/patients/registration', label: 'Register Patient' }
     ]
 
-    return (
-        <div className="patients-page">
-            <h1>Patient Management</h1>
-
-            <Tabs tabs={tabItems} />
-            <Outlet />
-        </div>
-    )
+    return <PageLayout title={"Patient Management"} tabs={tabItems} />
 }
 
 export default PatientsPage
