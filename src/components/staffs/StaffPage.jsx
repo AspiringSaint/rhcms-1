@@ -1,7 +1,4 @@
-import { NavLink, Outlet } from 'react-router-dom';
-
-import Tabs from '../common/Tabs';
-import '../../styles/components/staffs/StaffPage.css';
+import PageLayout from '../common/PageLayout';
 
 const StaffPage = () => {
 
@@ -10,17 +7,7 @@ const StaffPage = () => {
         { to: '/admin/staffs/register', label: 'Register Staff' }
     ]
 
-    return (
-        <div className="staff-page">
-            <h1>Staff Management</h1>
-
-            <Tabs tabs={tabItems} />
-            {/* Render nested route here */}
-            <div className="staff-outlet">
-                <Outlet />
-            </div>
-        </div>
-    );
+    return <PageLayout title={"Staff Management"} tabs={tabItems} />
 };
 
 export default StaffPage;
