@@ -9,6 +9,7 @@ const DashboardLayout = () => {
     <div className="dashboard-layout">
         <Sidebar />
         <div className="dashboard-main">
+            {/* Put the navbar inside the main content to make it scrollable */}
             <Navbar />
             <main className="main-content">
                 <Outlet />

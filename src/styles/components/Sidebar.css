@@ -16,40 +16,6 @@
     width: 4rem;
 }
 
-/* Floating collapse button */
-.collapse-btn {
-    position: absolute;
-    top: 1rem;
-    right: -0.8rem;
-    /* float outside edge */
-    z-index: 10;
-    margin-top: 22px;
-}
-
-.collapse-btn button {
-    background: #326350;
-    border: none;
-    border-radius: 50%;
-    width: 2rem;
-    height: 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    cursor: pointer;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease, background 0.3s ease;
-}
-
-.collapse-btn button:hover {
-    background: linear-gradient(145deg, #1f3f32, #4ade80);
-    transform: scale(1.1);
-}
-
-.chevron.rotate {
-    transform: rotate(180deg);
-}
-
 /* Sidebar body */
 .sidebar-body {
     margin-top: 64px;
@@ -66,71 +32,6 @@
     flex-direction: column;
     gap: 0.25rem;
 }
-
-/* Sidebar links */
-.sidebar-link {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    padding: 0.6rem 0.9rem;
-    border-radius: 0.6rem;
-    font-size: 0.95rem;
-    font-weight: 500;
-    color: rgba(255, 255, 255, 0.85);
-    text-decoration: none;
-    transition: background 0.3s ease, color 0.3s ease, transform 0.2s ease;
-    position: relative;
-    overflow: hidden;
-}
-
-.sidebar-link:hover {
-    color: #4ade80;
-}
-
-/* subtle slide-in effect on hover */
-.sidebar-link::before {
-    content: "";
-    position: absolute;
-    left: -100%;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(74, 222, 128, 0.1);
-    /* vue green tint */
-    transition: left 0.3s ease;
-}
-
-.sidebar-link:hover::before {
-    left: 0;
-}
-
-/* active link */
-.sidebar-link.active {
-    background: rgba(74, 222, 128, 0.15);
-    color: #4ade80;
-    font-weight: 600;
-    /* transform: translateX(4px); */
-}
-
-/* Sidebar icons */
-.sidebar-icon {
-    width: 20px;
-    height: 20px;
-    flex-shrink: 0;
-    margin-bottom: 4px;
-}
-
-.sidebar-link .sidebar-icon path {
-    fill: white;
-    transition: fill 0.3s ease, transform 0.3s ease;
-}
-
-.sidebar-link:hover .sidebar-icon path,
-.sidebar-link.active .sidebar-icon path {
-    fill: url(#gradient5);
-    transform: scale(1.15);
-}
-
 
 /* Sidebar footer */
 .sidebar-footer {

@@ -1,6 +1,8 @@
 import { useState } from "react"
 import { NavLink } from "react-router-dom"
 
+import CollapseButton from '../components/common/CollapseButton';
+import SidebarLink from "./common/SidebarLink";
 import '../styles/components/Sidebar.css'
 
 const roleMenus = {
@@ -106,7 +108,7 @@ const roleMenus = {
 
 const Sidebar = () => {
 
-    const [collapsed, setCollapsed] = useState(true);
+    const [collapsed, setCollapsed] = useState(false);
 
     const role = 'admin';
     const menus = roleMenus[role];
@@ -114,23 +116,12 @@ const Sidebar = () => {
     return (
         <aside className={`sidebar ${collapsed ? 'collapsed' : ''}`}>
             {/* Collapse toggle button */}
-            <div className="collapse-btn">
-                <button onClick={() => setCollapsed(!collapsed)}>
-                    <span className={`chevron ${collapsed ? 'rotate' : ''}`}>❮</span>
-                </button>
-            </div>
+            <CollapseButton collapsed={collapsed} onToggle={() => setCollapsed((prev) => !prev)} />
 
             <div className="sidebar-body">
                 <nav>
                     {menus.map(({ path, label, icon }) => (
-                        <NavLink
-                            key={path}
-                            to={path}
-                            className={({ isActive }) => `sidebar-link ${isActive ? "active" : ""}`}
-                        >
-                            <span className="sidebar-icon">{icon}</span>
-                            {!collapsed && <span className="sidebar-label">{label}</span>}
-                        </NavLink>
+                        <SidebarLink to={path} label={label} icon={icon} collapsed={collapsed} />
                     ))}
                 </nav>
             </div>
