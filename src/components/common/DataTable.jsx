@@ -1,4 +1,4 @@
-import React from 'react'
+import '../../styles/components/common/DataTable.css'
 
 const DataTable = ({ columns, data, onRowClick }) => {
     return (

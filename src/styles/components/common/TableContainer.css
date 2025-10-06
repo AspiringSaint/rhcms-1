@@ -3,6 +3,8 @@
     padding: 1rem;
     overflow-x: auto;
     border-radius: 0.75rem;
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
 }
 
 .table-div-title {

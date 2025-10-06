@@ -1,0 +1,83 @@
+/* Container for all pagination buttons */
+.pagination-container {
+    display: flex;             /* Arrange buttons in a row */
+    justify-content: center;   /* Center horizontally */
+    align-items: center;       /* Center vertically */
+    gap: 6px;                  /* Space between buttons */
+    margin-top: 16px;          /* Space above the pagination */
+}
+
+/* Common button style */
+.pagination-btn {
+    background: linear-gradient(135deg, #326350, #4ade80); /* Vue-green gradient by default */
+    color: #fff;                  /* White text */
+    border: 1px solid #16a34a;    /* Green border */
+    padding: 6px 12px;            /* Padding inside button */
+    border-radius: 8px;           /* Rounded corners */
+    cursor: pointer;              /* Pointer on hover */
+    transition: all 0.3s ease;    /* Smooth animations for hover/active */
+    font-weight: 600;             /* Slightly bold text */
+    position: relative;           /* Needed for ::before effect */
+    overflow: hidden;             /* Hide overflow from ::before */
+}
+
+/* Radial gradient effect on hover */
+.pagination-btn::before {
+    content: "";                  /* Required for pseudo-element */
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 10%, transparent 30%);
+    opacity: 0;                   /* Initially invisible */
+    transition: all 0.4s ease;    /* Smooth fade/scale effect */
+}
+
+/* Show the radial hover effect */
+.pagination-btn:hover::before {
+    opacity: 1;
+    transform: scale(0.5);
+}
+
+/* Hover effect: button moves slightly up with glow */
+.pagination-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(74, 222, 128, 0.5); /* soft green glow */
+}
+
+/* Disabled buttons look faded and unclickable */
+.pagination-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background: linear-gradient(135deg, #a7f3d0, #6ee7b7); /* lighter gradient */
+    border-color: #6ee7b7;
+}
+
+/* Active page button */
+.pagination-btn.active {
+    background: linear-gradient(135deg, #326350, #4ade80); /* stronger gradient */
+    border-color: #22c55e;                                  /* accent border */
+    color: #fff;
+    box-shadow: 0 0 10px rgba(74, 222, 128, 0.7);          /* glow */
+    animation: glow 1.5s infinite alternate;               /* pulsating glow effect */
+}
+
+/* Glow animation keyframes */
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 6px rgba(74, 222, 128, 0.5),
+                    0 0 12px rgba(74, 222, 128, 0.3);
+    }
+    100% {
+        box-shadow: 0 0 12px rgba(74, 222, 128, 0.8),
+                    0 0 24px rgba(74, 222, 128, 0.5);
+    }
+}
+
+/* Ellipsis styling */
+.pagination-ellipsis {
+    padding: 0 8px;
+    color: #a7f3d0;   /* pale green text for dots */
+    font-weight: 600;
+}
