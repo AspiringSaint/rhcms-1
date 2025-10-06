@@ -1,0 +1,112 @@
+/* Container centers content both vertically and horizontally */
+.notfound-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    background: linear-gradient(135deg, #0f172a, #1e3a3a, #326350);
+    /* dark Vue-green gradient */
+    color: #ffffff;
+    /* animation: fadeIn 0.5s ease-in-out; */
+}
+
+/* Large 404 text */
+.notfound-code {
+    font-size: 8rem;
+    font-weight: 900;
+    color: #4ade80;
+    /* bright Vue green */
+    text-shadow: 0 0 20px rgba(74, 222, 128, 0.6);
+    animation: pulse 2s infinite alternate;
+    /* glowing pulse animation */
+    margin-bottom: 0.5rem;
+}
+
+/* Secondary message */
+.notfound-message {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    /* background: linear-gradient(135deg, #4ade80, #16a34a); */
+    /* -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; */
+    /* gradient text */
+}
+
+/* Description text */
+.notfound-description {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.75);
+    max-width: 480px;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+/* "Go Back Home" button */
+.notfound-btn {
+    background: linear-gradient(135deg, #326350, #4ade80);
+    color: #ffffff;
+    text-decoration: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+    border: 2px solid #4ade80;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(74, 222, 128, 0.4);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+/* Shine effect */
+.notfound-btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -75%;
+    width: 50%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: skewX(-20deg);
+    transition: left 0.6s ease;
+}
+
+/* Button hover state */
+.notfound-btn:hover::before {
+    left: 125%;
+    /* slide the shine across */
+}
+
+.notfound-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 20px rgba(74, 222, 128, 0.7);
+    background: linear-gradient(135deg, #4ade80, #16a34a);
+}
+
+/* Simple fade-in for entire page */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Pulsing glow for the 404 number */
+@keyframes pulse {
+    0% {
+        text-shadow: 0 0 10px rgba(74, 222, 128, 0.3);
+    }
+
+    100% {
+        text-shadow: 0 0 25px rgba(74, 222, 128, 0.8);
+    }
+}

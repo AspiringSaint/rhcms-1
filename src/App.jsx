@@ -26,6 +26,8 @@ import QueuePage from './components/queues/QueuePage';
 import PharmacyPage from './components/pharmacy/PharmacyPage';
 import ReportsPage from './components/reports/ReportPage';
 
+import NotFoundPage from './pages/NotFoundPage';
+
 const App = () => {
   return (
     <>
@@ -61,6 +63,7 @@ const App = () => {
           <Route path='reports' element={<ReportsPage />}/>
         </Route>
 
+        <Route path='*' element={<NotFoundPage />} />
       </Routes>
     </>
   )
