@@ -1,44 +1,27 @@
 import '../../styles/components/staffs/StaffForm.css'
 
+import FormSection from '../common/FormSection';
+import TextInput from '../common/TextInput';
+import SelectInput from '../common/Selectinput';
+import SubmitButton from '../common/SubmitButton';
+
 const StaffForm = () => {
     return (
         <div className="staff-form-page">
-            <h2>Register New Staff</h2>
-
             <form className="staff-form">
-                {/* Basic Info */}
-                <div className="form-section">
-                    <h3>Basic Information</h3>
-                    <input type="text" placeholder="Full Name" required />
-                    <input type="email" placeholder="Email" required />
-                    <input type="password" placeholder="Password" required />
-                </div>
+                
+                <FormSection title={"Personal Information"}>
+                    <TextInput placeholder={"Full Name"} required={true}  />
+                    <TextInput type='email' placeholder={"Email Address"} required={true} />
+                    <TextInput type='password' placeholder={"Password"} required={true} />
+                </FormSection>
 
-                {/* Role & Specialty */}
-                <div className="form-section">
-                    <h3>Role & Details</h3>
-                    <select required>
-                        <option value="">Select Role</option>
-                        <option>Doctor</option>
-                        <option>Nurse</option>
-                        <option>Pharmacist</option>
-                        <option>BHW</option>
-                        <option>Admin</option>
-                    </select>
-                    <input type="text" placeholder="Specialty (if Doctor)" />
-                </div>
+                <FormSection title={"Role & Details"}>
+                    <SelectInput options={["Doctor", "Nurse", "Pharmacist", "BHW", "Admin"]} />
+                    <TextInput placeholder={"Specialty"} />
+                </FormSection>
 
-                {/* Status */}
-                <div className="form-section">
-                    <h3>Status</h3>
-                    <select>
-                        <option value="Active">Active</option>
-                        <option value="Inactive">Inactive</option>
-                    </select>
-                </div>
-
-                {/* Submit */}
-                <button type="submit">Register</button>
+                <SubmitButton label={"Register"} />
             </form>
         </div>
     );
