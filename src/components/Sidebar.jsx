@@ -121,7 +121,7 @@ const Sidebar = () => {
             <div className="sidebar-body">
                 <nav>
                     {menus.map(({ path, label, icon }) => (
-                        <SidebarLink to={path} label={label} icon={icon} collapsed={collapsed} />
+                        <SidebarLink key={path} to={path} label={label} icon={icon} collapsed={collapsed} />
                     ))}
                 </nav>
             </div>
