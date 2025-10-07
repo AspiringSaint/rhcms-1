@@ -4,7 +4,7 @@ const PatientsPage = () => {
 
     const tabItems = [
         { to: '/admin/patients', label: 'Patient List', end: true },
-        { to: '/admin/patients/registration', label: 'Register Patient' }
+        { to: '/admin/patients/register', label: 'Register Patient' }
     ]
 
     return <PageLayout title={"Patient Management"} tabs={tabItems} />

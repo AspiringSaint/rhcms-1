@@ -60,7 +60,7 @@ const App = () => {
 
           <Route path='queues' element={<QueuePage />} />
           <Route path='pharmacy' element={<PharmacyPage />} />
-          <Route path='reports' element={<ReportsPage />}/>
+          <Route path='reports' element={<ReportsPage />} />
         </Route>
 
         <Route path='*' element={<NotFoundPage />} />
