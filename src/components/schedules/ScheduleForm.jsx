@@ -1,12 +1,37 @@
 import '../../styles/components/schedules/ScheduleForm.css';
 
+import FormSection from '../common/FormSection';
+import TextInput from '../common/TextInput';
+import SelectInput from '../common/Selectinput';
+import SubmitButton from '../common/SubmitButton';
+
 const ScheduleForm = () => {
     return (
         <div className="schedule-form-page">
-            <h2>Add New Schedule</h2>
             <form className="schedule-form">
-                {/* Doctor & Specialty */}
-                <div className="form-row">
+
+                <FormSection>
+                    <SelectInput options={['Dr. Reyes', 'Dr. Santos']} /> 
+                </FormSection>
+                <FormSection>
+                    <SelectInput
+                        options={[
+                            'Monday',
+                            'Tuesday',
+                            'Wednesday',
+                            'Thursday',
+                            'Friday',
+                            'Saturday',
+                            'Sunday'
+                        ]} 
+                    />
+                    <TextInput type='time' />
+                    <TextInput type='time' />
+                </FormSection>
+
+                <SubmitButton label={'Add Schedule'} />
+
+                {/* <div className="form-row">
                     <select required>
                         <option value="">Select Doctor</option>
                         <option value="1">Dr. Reyes</option>
@@ -15,7 +40,6 @@ const ScheduleForm = () => {
                     <input type="text" placeholder="Specialty" disabled value="Auto-filled after doctor selection" />
                 </div>
 
-                {/* Day */}
                 <div className="form-row">
                     <select required>
                         <option value="">Select Day</option>
@@ -29,7 +53,6 @@ const ScheduleForm = () => {
                     </select>
                 </div>
 
-                {/* Time */}
                 <div className="form-row">
                     <div className="time-input">
                         <label>Start Time</label>
@@ -41,7 +64,7 @@ const ScheduleForm = () => {
                     </div>
                 </div>
 
-                <button type="submit">Save Schedule</button>
+                <button type="submit">Save Schedule</button> */}
             </form>
         </div>
     );
