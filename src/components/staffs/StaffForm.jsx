@@ -1,29 +1,28 @@
 import '../../styles/components/staffs/StaffForm.css'
 
+import FormPage from '../common/FormPage';
 import FormSection from '../common/FormSection';
 import TextInput from '../common/TextInput';
-import SelectInput from '../common/Selectinput';
+import InputField from '../common/InputField';
+import SelectInput from '../common/SelectField';
 import SubmitButton from '../common/SubmitButton';
 
 const StaffForm = () => {
     return (
-        <div className="staff-form-page">
-            <form className="staff-form">
-                
-                <FormSection title={"Personal Information"}>
-                    <TextInput placeholder={"Full Name"} required={true}  />
-                    <TextInput type='email' placeholder={"Email Address"} required={true} />
-                    <TextInput type='password' placeholder={"Password"} required={true} />
-                </FormSection>
+        <FormPage>
+            <FormSection title={"Personal Information"}>
+                <InputField label={'Full Name'} required={true} />
+                <InputField type='email' label={'Email Address'} required={true} />
+                <InputField type='password' label={'Password'} required={true} />
+            </FormSection>
 
-                <FormSection title={"Role & Details"}>
-                    <SelectInput options={["Doctor", "Nurse", "Pharmacist", "BHW", "Admin"]} />
-                    <TextInput placeholder={"Specialty"} />
-                </FormSection>
+            <FormSection title={"Role & Details"}>
+                <SelectInput label={'Role'} options={["Doctor", "Nurse", "Pharmacist", "BHW", "Admin"]} />
+                <InputField label={'Specialty'} />
+            </FormSection>
 
-                <SubmitButton label={"Register"} />
-            </form>
-        </div>
+            <SubmitButton label={"Register"} />
+        </FormPage>
     );
 };
 

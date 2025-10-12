@@ -1,0 +1,17 @@
+.form-section {
+    display: flex;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 1rem 1.25rem;
+    border-radius: 0.75rem;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-section-content {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 1rem;
+    width: 100%;
+    flex-wrap: wrap;
+}

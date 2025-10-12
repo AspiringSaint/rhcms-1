@@ -1,9 +1,9 @@
 import '../../styles/components/patients/PatientForm.css'
 
-
+import FormPage from '../common/FormPage';
 import FormSection from '../common/FormSection';
-import TextInput from '../common/TextInput';
-import SelectInput from '../common/Selectinput';
+import InputField from '../common/InputField';
+import SelectField from '../common/SelectField';
 import SubmitButton from '../common/SubmitButton';
 
 const PatientForm = () => {
@@ -11,29 +11,25 @@ const PatientForm = () => {
     const personalInfoOptions = ["Male", "Female", "Others"];
 
     return (
-        <div className="patient-form-page">
-            <form className="patient-form">
+        <FormPage>
+            <FormSection title={'Personal Information'}>
+                <InputField label={'First Name'} required={true} />
+                <InputField label={'Last Name'}  required={true} />
+                <InputField label={'Date of Birth'} type='date' placeholder={'Date of Birth'} required={true} />
+                <SelectField label={'Gender'} options={personalInfoOptions} required={true} />
+            </FormSection>
 
-                <FormSection title={'Personal Information'}>
-                    <TextInput placeholder={'First Name'} required={true} />
-                    <TextInput placeholder={'Last Name'} required={true} />
-                    <TextInput type='date' placeholder={'Date of Birth'} required={true} />
-                    <SelectInput options={personalInfoOptions} required={true} />
-                </FormSection>
+            <FormSection title={"Contact Information"}>
+                <InputField label={'Address'} required={true} />
+                <InputField label={'City'}  />
+                <InputField label={'Province'}  />
+                <InputField label={'Postal Code'}  />
+                <InputField label={'Contact Number'}  required />
+                <InputField label={'Email Address'} type='email' />
+            </FormSection>
 
-                <FormSection title={"Contact Information"}>
-                    <TextInput placeholder={"Address"} required={true} />
-                    <TextInput placeholder={"City"} />
-                    <TextInput placeholder={"Province"} />
-                    <TextInput placeholder={"Postal Code"} />
-                    <TextInput placeholder={"Contact Number"} required />
-                    <TextInput type='email' placeholder={"Email Address"} />
-                </FormSection>
-
-                <SubmitButton label={"Register Patient"} />
-
-            </form>
-        </div>
+            <SubmitButton label={"Register Patient"} />
+        </FormPage>
     );
 };
 

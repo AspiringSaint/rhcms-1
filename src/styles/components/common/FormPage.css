@@ -1,0 +1,17 @@
+/* Container */
+.form-page-wrapper {
+    padding: 2rem 1rem;
+    color: white;
+    font-family: 'Inter', sans-serif;
+    background-color: #0f1115;
+    min-height: 100%;
+    box-sizing: border-box;
+}
+
+/* Form wrapper */
+.form-page {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 100%;
+}

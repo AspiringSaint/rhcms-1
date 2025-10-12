@@ -1,9 +1,9 @@
 import '../../styles/components/schedules/ScheduleForm.css';
 
 import FormSection from '../common/FormSection';
-import TextInput from '../common/TextInput';
-import SelectInput from '../common/Selectinput';
+import SelectField from '../common/SelectField';
 import SubmitButton from '../common/SubmitButton';
+import TimeField from '../common/TimeField';
 
 const ScheduleForm = () => {
     return (
@@ -11,10 +11,20 @@ const ScheduleForm = () => {
             <form className="schedule-form">
 
                 <FormSection>
-                    <SelectInput options={['Dr. Reyes', 'Dr. Santos']} /> 
+                    <SelectField 
+                        label={'Doctor'}
+                        required
+                        options={[
+                            'Dr. Reyes', 
+                            'Dr. Santos'
+                        ]} 
+                    /> 
                 </FormSection>
+                
                 <FormSection>
-                    <SelectInput
+                    <SelectField
+                        label={'Day'}
+                        required
                         options={[
                             'Monday',
                             'Tuesday',
@@ -25,46 +35,11 @@ const ScheduleForm = () => {
                             'Sunday'
                         ]} 
                     />
-                    <TextInput type='time' />
-                    <TextInput type='time' />
+                    <TimeField label="Start Time" required />
+                    <TimeField label="End Time" required />
                 </FormSection>
 
                 <SubmitButton label={'Add Schedule'} />
-
-                {/* <div className="form-row">
-                    <select required>
-                        <option value="">Select Doctor</option>
-                        <option value="1">Dr. Reyes</option>
-                        <option value="2">Dr. Santos</option>
-                    </select>
-                    <input type="text" placeholder="Specialty" disabled value="Auto-filled after doctor selection" />
-                </div>
-
-                <div className="form-row">
-                    <select required>
-                        <option value="">Select Day</option>
-                        <option>Monday</option>
-                        <option>Tuesday</option>
-                        <option>Wednesday</option>
-                        <option>Thursday</option>
-                        <option>Friday</option>
-                        <option>Saturday</option>
-                        <option>Sunday</option>
-                    </select>
-                </div>
-
-                <div className="form-row">
-                    <div className="time-input">
-                        <label>Start Time</label>
-                        <input type="time" required />
-                    </div>
-                    <div className="time-input">
-                        <label>End Time</label>
-                        <input type="time" required />
-                    </div>
-                </div>
-
-                <button type="submit">Save Schedule</button> */}
             </form>
         </div>
     );
