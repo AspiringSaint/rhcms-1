@@ -1,4 +1,4 @@
-import React from "react";
+import '../../styles/components/common/SubmitButton.css'
 
 const SubmitButton = ({ label }) => {
     return (

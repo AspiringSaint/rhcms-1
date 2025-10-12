@@ -4,7 +4,7 @@ const DataTable = ({ columns, data, onRowClick }) => {
     return (
         <table className="patient-table">
             <thead>
-                <tr>
+                <tr className='thead-tr'>
                     {columns.map(col => (
                         <th key={col.key}>{col.label}</th>
                     ))}

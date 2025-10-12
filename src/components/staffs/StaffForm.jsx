@@ -2,7 +2,6 @@ import '../../styles/components/staffs/StaffForm.css'
 
 import FormPage from '../common/FormPage';
 import FormSection from '../common/FormSection';
-import TextInput from '../common/TextInput';
 import InputField from '../common/InputField';
 import SelectInput from '../common/SelectField';
 import SubmitButton from '../common/SubmitButton';

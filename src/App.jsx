@@ -23,6 +23,8 @@ import ScheduleList from './components/schedules/ScheduleList';
 import ScheduleForm from './components/schedules/ScheduleForm';
 
 import QueuePage from './components/queues/QueuePage';
+import QueuesList from './components/queues/QueuesList';
+
 import PharmacyPage from './components/pharmacy/PharmacyPage';
 import ReportsPage from './components/reports/ReportPage';
 
@@ -58,7 +60,10 @@ const App = () => {
             <Route path='add' element={<ScheduleForm />} />
           </Route>
 
-          <Route path='queues' element={<QueuePage />} />
+          <Route path='queues' element={<QueuePage />}>
+            <Route index element={<QueuesList />}/>
+          </Route>
+
           <Route path='pharmacy' element={<PharmacyPage />} />
           <Route path='reports' element={<ReportsPage />} />
         </Route>
