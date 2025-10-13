@@ -1,5 +1,9 @@
 import '../../styles/pages/admin/AdminDashboardPage.css'
 
+import DashboardPage from '../../components/common/DashboardPage';
+import DashboardCardWrapper from '../../components/common/DashboardCardWrapper';
+import DashboardCard from '../../components/common/DashboardCard';
+
 const dummyStats = {
   totalPatientsToday: 25,
   patientsInQueue: {
@@ -12,12 +16,6 @@ const dummyStats = {
   activeDoctors: 3,
 };
 
-const dummyRecentPatients = [
-  { id: 1, name: "Juan Cruz", specialty: "Internal Medicine" },
-  { id: 2, name: "Maria Santos", specialty: "OB-GYN" },
-  { id: 3, name: "Pedro Dela Cruz", specialty: "Pediatrics" },
-];
-
 const dummySchedules = [
   { doctor: "Dr. Reyes", specialty: "Internal Medicine", time: "08:00 - 12:00" },
   { doctor: "Dr. Santos", specialty: "OB-GYN", time: "09:00 - 13:00" },
@@ -25,73 +23,40 @@ const dummySchedules = [
 
 const AdminDashboardPage = () => {
   return (
-    <div className="admin-dashboard-page">
-      <h1>Admin Dashboard</h1>
+    <>
+      <DashboardPage title={'Admin Dashboard'}>
+        <DashboardCardWrapper>
+          <DashboardCard title={'Total Patients Today'} value={dummyStats.totalPatientsToday} />
+          <DashboardCard title={'Consultations Done Today'} value={dummyStats.consultationsDone} />
+          <DashboardCard title={'Active Doctors'} value={dummyStats.activeDoctors} />
+        </DashboardCardWrapper>
 
-      {/* Summary Cards */}
-      <div className="dashboard-cards">
-        <div className="card">
-          <h3>Total Patients Today</h3>
-          <p>{dummyStats.totalPatientsToday}</p>
-        </div>
-        <div className="card">
-          <h3>Patients in Queue</h3>
-          {Object.entries(dummyStats.patientsInQueue).map(([key, value]) => (
-            <p key={key}>{key}: {value}</p>
-          ))}
-        </div>
-        <div className="card">
-          <h3>Consultations Done Today</h3>
-          <p>{dummyStats.consultationsDone}</p>
-        </div>
-        <div className="card">
-          <h3>Low Stock Medicines</h3>
-          {dummyStats.lowStock.map(m => <p key={m}>{m}</p>)}
-        </div>
-        <div className="card">
-          <h3>Active Doctors</h3>
-          <p>{dummyStats.activeDoctors}</p>
-        </div>
-      </div>
-
-      {/* Queues Overview */}
-      <div className="dashboard-section">
-        <h2>Queues Overview</h2>
-        <table className="dashboard-table">
-          <thead>
-            <tr><th>Specialty</th><th>Waiting Patients</th></tr>
-          </thead>
-          <tbody>
-            {Object.entries(dummyStats.patientsInQueue).map(([specialty, count]) => (
-              <tr key={specialty}>
-                <td>{specialty}</td>
-                <td>{count}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-
-      {/* Recent Patients */}
-      <div className="dashboard-section">
-        <h2>Recent Patients</h2>
-        <ul className="dashboard-list">
-          {dummyRecentPatients.map(p => (
-            <li key={p.id}>{p.name} - {p.specialty}</li>
-          ))}
-        </ul>
-      </div>
-
-      {/* Upcoming Schedules */}
-      <div className="dashboard-section">
-        <h2>Today’s Schedules</h2>
-        <ul className="dashboard-list">
-          {dummySchedules.map((s, index) => (
-            <li key={index}>{s.doctor} - {s.specialty} ({s.time})</li>
-          ))}
-        </ul>
-      </div>
-    </div>
+        <DashboardCardWrapper>
+          <DashboardCard title={'Queues Overview'}>
+            <table className="dashboard-table">
+              <thead>
+                <tr><th>Specialty</th><th>Waiting Patients</th></tr>
+              </thead>
+              <tbody>
+                {Object.entries(dummyStats.patientsInQueue).map(([specialty, count]) => (
+                  <tr key={specialty}>
+                    <td>{specialty}</td>
+                    <td>{count}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </DashboardCard>
+          <DashboardCard title={'Today\'s Schedule'}>
+            <ul className="dashboard-list">
+              {dummySchedules.map((s, index) => (
+                <li key={index}>{s.doctor} - {s.specialty} ({s.time})</li>
+              ))}
+            </ul>
+          </DashboardCard>
+        </DashboardCardWrapper>
+      </DashboardPage>
+    </>
   );
 };
 
